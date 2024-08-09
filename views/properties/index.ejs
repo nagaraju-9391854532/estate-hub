@@ -1,0 +1,50 @@
+
+
+<% layout('layouts/boilerplate')%>
+<% if(propertytype=="house"){ %>
+<% for (let house of houses){%>
+    <div class="card" mb-3>
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-fluid" height="350" width="400" alt="" src="<%=house.images[0].url%>">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= house.title %> </h5>
+                    <p class="card-text"><%= house.address %></p>
+                    <p class="card-text"><%= house.description %></p>
+                    <p class="card-text">price: $<%= house.price %></p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= house.location%></small>
+                    </p>
+                    <a class="btn btn-primary" href="/properties/house/<%=house._id%>">View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% }%>
+<% } %>
+
+<% if(propertytype=="plot"){ %>
+    <% for (let plot of plots){%>
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="img-fluid" height="350" width="400" alt="" src="<%=plot.images[0].url%>">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= plot.title %> </h5>
+                        <p class="card-text"><%= plot.address %></p>
+                        <p class="card-text"><%= plot.description %></p>
+                        <p class="card-text"><%= plot.price %></p>
+                        <p class="card-text">
+                            <small class="text-muted"><%= plot.location%></small>
+                        </p>
+                        <a class="btn btn-primary" href="/properties/plot/<%=plot._id%>">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }%>
+    <% } %>

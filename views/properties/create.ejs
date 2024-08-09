@@ -1,0 +1,167 @@
+
+<% layout('layouts/boilerplate')%>
+<h2><%= property %> form</h2>
+<% if(property=="plot"){ %>
+    <form action="/listProperty/plot" class="houseform" method="post">
+        <div class="container">
+            <div class="common">
+                <label for="title">Title</label>
+                <input type="text" name="plot[title]" id="title">
+            </div>
+        <div class="area">
+            <label for="plotarea">PlotArea in sqyd</label>
+            <input type="number" step="0.01" name="plot[plotarea]" id="plotarea">
+        </div>
+        <div class="lb">
+            <div class="length">
+                <label for="length">length</label>
+                <input type="number" step="0.01" name="plot[length]" id="length">
+            </div>
+            <div class="breadth">
+                <label for="breadth">breadth</label>
+                <input type="number" step="0.01" name="plot[breadth]" id="breadth">
+            </div>
+        </div>
+        <div class="common">
+            <label for="facing">Facing(direction)</label>
+            <input type="text" name="plot[facing]" id="facing">
+        </div>
+        <div class="common">
+        <label for="roadwidth">RoadWidth(feets)</label>
+        <input type="number" name="plot[roadwidth]" id="roadwidth">
+        </div>
+        <div class="common">
+        <label for="cornerPlot">CornerPlot</label>
+        <select name="plot[cornerPlot]" id="cornerPlot">
+            <option value="YES">yes</option>
+            <option value="NO">No</option>
+        </select>
+        </div>
+        <div class="common">
+            <label for="location">Location</label>
+            <input type="text" name="plot[location]" id="location">
+            </div>
+        <div class="common">
+        <label for="address">Address</label>
+        <input type="text" name="plot[address]" id="address">
+        </div>
+        <div class="common">
+        <label for="description">Description</label>
+        <textarea name="plot[description]" id="description" cols="10" rows="1"></textarea>
+        </div>
+        <div class="common">
+        <label for="price">Price</label>
+        <input type="number" name="plot[price]" id="price">
+        </div>
+        <div class="common">
+        <label for="authorityapproved">Authority Approved</label>
+        <select name="plot[authorityapproved]" id="authorityapproved">
+            <option value="YES">yes</option>
+            <option value="NO">No</option>
+        </select>
+        </div>
+        <span>seller details</span>
+        <div class="common">
+            <label for="sname">Name</label>
+            <input type="text" name="plot[sname]" id="sname">
+        </div>
+        <div class="common">
+            <label for="smobile">MobileNo</label>
+            <input type="text" name="plot[smobile]" id="smobile">
+        </div>
+        <div class="common">
+            <label for="semail">Email</label>
+            <input type="email" name="plot[semail]" id="email">
+        </div>
+        <button class="sub">submit</button>
+    </div>
+    </form>
+<% } %>
+
+<% if(property=="house"){ %>
+
+    <form action="listProperty/house" class="houseform" method="post">
+        <div class="incontainer">
+            <div class="common">
+                <label for="title">Title</label>
+                <input type="text" name="house[title]" id="title">
+            </div>
+        <div class="area">
+            <label for="carpetarea">CarpetArea in sqft</label>
+            <input type="number" step="0.01" name="house[carpetarea]" id="carpetarea">
+        </div>
+        <div class="area">
+            <label for="plotarea">PlotArea in sqyd</label>
+            <input type="number" step="0.01" name="house[plotarea]" id="plotarea">
+        </div>
+        <div class="lb">
+        <div class="length">
+            <label for="length">length</label>
+            <input type="number" step="0.01" name="house[length]" id="length">
+        </div>
+        <div class="breadth">
+            <label for="breadth">breadth</label>
+            <input type="number" step="0.01" name="house[breadth]" id="breadth">
+        </div>
+        </div>
+        <div class="common">
+            <label for="facing">Facing(direction)</label>
+            <input type="text" name="house[facing]" id="facing">
+        </div>
+        <div class="common">
+        <label for="roadwidth">RoadWidth(feets)</label>
+        <input type="number" name="house[roadwidth]" id="nooffloors">
+        </div>
+        <div class="common">
+        <label for="nooffloors">no of floors</label>
+        <input type="number" name="house[nooffloors]" id="nooffloors">
+        </div>
+        <div class="common">
+        <label for="location">location</label>
+        <input type="text" name="house[location]" id="location">
+        </div>
+        <div class="common">
+        <label for="address">Address</label>
+        <input type="text" name="house[address]" id="address">
+        </div>
+        <div class="common">
+        <label for="description">Description</label>
+        <textarea name="house[description]" id="description" cols="10" rows="1"></textarea>
+        </div>
+        <div class="common">
+        <label for="price">Price</label>
+        <input type="number" name="house[price]" id="price">
+        </div>
+        <div class="common">
+        <label for="cornerPlot">CornerPlot</label>
+        <select name="house[cornerhouse]" id="cornerPlot">
+            <option value="YES">yes</option>
+            <option value="NO">No</option>
+        </select>
+        </div>
+        <div class="common">
+        <label for="gatedcommunity">Gatedcommunity</label>
+        <select name="house[gatedcommunity]" id="gatedcommunity">
+            <option value="YES">yes</option>
+            <option value="NO">No</option>
+        </select>
+        </div>
+        <span>seller details</span>
+        <div class="common">
+            <label for="sname">Name</label>
+            <input type="text" name="house[sname]" id="sname">
+        </div>
+        <div class="common">
+            <label for="smobile">MobileNo</label>
+            <input type="text" name="house[smobile]" id="smobile">
+        </div>
+        <div class="common">
+            <label for="semail">Email</label>
+            <input type="email" name="house[semail]" id="email">
+        </div>
+        <button class="sub">submit</button>
+        </div>
+    </form>
+
+<% } %>
+

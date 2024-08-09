@@ -1,0 +1,155 @@
+
+<% layout('layouts/boilerplate')%>
+<% if(propertytype=="house"){ %>
+
+<div class="sout">
+<div class="row soutdiv">
+    <div class="col-6 soutdiv" >
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <% house.images.forEach((img, i) => {  %>
+                <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+                    <img src="<%= img.url%>" class="d-block w-100" alt="">
+                </div>
+                <% }) %>
+
+            </div>
+            <% if(house.images.length > 1) {%>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+            <% } %>
+        </div>
+
+        <div class="card mb-3">
+            <div class="card-body">
+
+                <h5 class="card-title">Title: <%= house.title%></h5>
+                <h6 class="card-text">Address: <%= house.address %></h6>
+                <p class="card-text">Description: <%= house.description%></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-muted">Location: <%= house.location%></li>
+                <li class="list-group-item">Facing: <%= house.facing%></li>
+                <li class="list-group-item">RoadWidth(feets): <%= house.roadwidth%></li>
+                
+                <li class="list-group-item">Price: $<%= house.price%></li>
+                <li class="list-group-item">Carpet Area(in Sqft): <%= house.carpetarea%></li>
+                <li class="list-group-item">Plot Area(in Sqyd): <%= house.plotarea%></li>
+                <li class="list-group-item">Number Of Floors: <%= house.nooffloors%></li>
+                <li class="list-group-item">GatedCommunity: <%= house.gatedcommunity%></li>
+                <li class="list-group-item">Corner House: <%= house.cornerhouse%></li>
+            </ul>
+            <%  if( currentUser && house.author.equals(currentUser._id))  {%>
+            <div class="card-body">
+                <a class="card-link btn btn-info" href="/properties/house/<%=house._id%>/edit">Edit</a>
+                <form class="d-inline" action="/properties/house/<%=house._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            <% } %>
+            
+        </div>
+
+    </div>
+</div>
+
+<div class="sin2">
+    <div class="sin2img">
+        <img src="https://res.cloudinary.com/dmsthnisw/image/upload/v1703062308/dummy-profile-pic-male1_wplouv.jpg" alt="">
+    </div>
+    <div class="sin2details">
+        <h3>Seller Details</h3>
+        <h5><%= house.sname %></h5>
+        
+        <span>Mobile: <%= house.smobile %></span>
+        <p>Email: <%=house.semail  %></p>
+        <button>View Details</button>
+    </div>
+</div>
+
+
+
+</div>
+<% } %>
+
+<% if(propertytype=="plot"){ %>
+<div class="sout">
+    <div class="row soutdiv">
+        <div class="col-6 soutdiv " >
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <% plot.images.forEach((img, i) => {  %>
+                    <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+                        <img src="<%= img.url%>" class="d-block w-100" alt="">
+                    </div>
+                    <% }) %>
+    
+                </div>
+                <% if(plot.images.length > 1) {%>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                      </button>
+                <% } %>
+            </div>
+    
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Title: <%= plot.title%></h5>
+                    <h6 class="card-text">Address: <%= plot.address %></h6>
+                    <p class="card-text">Description: <%= plot.description%></p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-muted">Location: <%= plot.location%></li>
+                    <li class="list-group-item">Facing: <%= plot.facing%></li>
+                    <li class="list-group-item">RoadWidth(feets): <%= plot.roadwidth%></li>
+                  
+                    <li class="list-group-item">Price: $<%= plot.price%></li>
+                    
+                    <li class="list-group-item">Plot Area(in Sqyd): <%= plot.plotarea%></li>
+                   
+                    <li class="list-group-item">Corner plot: <%= plot.cornerPlot%></li>
+                    <li class="list-group-item">AuthorityApproved: <%= plot.authorityapproved%></li>
+                </ul>
+                <%  if( currentUser && plot.author.equals(currentUser._id))  {%>
+                    <div class="card-body">
+                        <a class="card-link btn btn-info" href="/properties/plot/<%=plot._id%>/edit">Edit</a>
+                        <form class="d-inline" action="/properties/plot/<%=plot._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    <% } %>
+                
+            </div>
+    
+        </div>
+    </div>
+
+
+    <div class="sin2">
+        <div class="sin2img">
+            <img src="https://res.cloudinary.com/dmsthnisw/image/upload/v1703062308/dummy-profile-pic-male1_wplouv.jpg" alt="">
+        </div>
+        <div class="sin2details">
+            <h3>Seller Details</h3>
+            <h5><%= plot.sname %></h5>
+            
+            <span>Mobile: <%= plot.smobile %></span>
+            <p>Email: <%=plot.semail  %></p>
+            <button>View Details</button>
+        </div>
+    </div>
+
+
+</div>
+    <% } %>
